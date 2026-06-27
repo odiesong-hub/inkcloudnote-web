@@ -27,7 +27,12 @@ jobs:
       # 未来如需扩展（如压缩 HTML、生成 sitemap），在此插入
 
       - name: Setup Pages
+        id: pages
         uses: actions/configure-pages@v5
+        continue-on-error: true
+        # configure-pages 在某些新仓库上会因 Pages 端点状态失败，
+        # 但只要仓库 Settings → Pages 已手动设为 GitHub Actions 即非必需。
+        # 失败时跳过，让 upload/deploy 继续。
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
