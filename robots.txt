@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://audi-studio.github.io/inkcloudnote-web/sitemap.xml

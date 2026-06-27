@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>inkCloudNote · 印刻笔记 — 三端同步的 Markdown 知识库</title>
+  <meta name="description" content="inkCloudNote 是一款 PC + Android + 百度网盘云同步三位一体的 Markdown 知识管理工具。开源、免费、跨平台。">
+  <meta name="author" content="audi-studio">
+  <meta name="theme-color" content="#4f46e5">
+
+  <!-- Open Graph（微信/Twitter/Slack 分享卡片） -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="inkCloudNote">
+  <meta property="og:title" content="inkCloudNote · 印刻笔记">
+  <meta property="og:description" content="三端同步的 Markdown 知识库 — PC + Android + 百度网盘">
+  <meta property="og:image" content="assets/pc/hero.png">
+  <meta property="og:url" content="https://audi-studio.github.io/inkcloudnote-web/">
+  <meta property="og:locale" content="zh_CN">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="inkCloudNote · 印刻笔记">
+  <meta name="twitter:description" content="三端同步的 Markdown 知识库 — PC + Android + 百度网盘">
+  <meta name="twitter:image" content="assets/pc/hero.png">
+
+  <link rel="canonical" href="https://audi-studio.github.io/inkcloudnote-web/">
+  <link rel="icon" type="image/png" href="assets/logo.png">
+  <link rel="apple-touch-icon" href="assets/icon.png">
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- JSON-LD 结构化数据（提升 SEO） -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "inkCloudNote",
+    "alternateName": "印刻笔记",
+    "applicationCategory": "ProductivityApplication",
+    "operatingSystem": "macOS, Windows, Linux, Android",
+    "description": "三端同步的 Markdown 知识库 — PC + Android + 百度网盘云同步",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "CNY" },
+    "license": "https://opensource.org/licenses/MIT"
+  }
+  </script>
+</head>
+<body>
+  <a href="#main" class="skip-link">跳到主内容</a>
+
+  <!-- ============ 导航栏 ============ -->
+  <header class="navbar" id="navbar">
+    <div class="container nav-inner">
+      <a href="#hero" class="brand" aria-label="inkCloudNote 首页">
+        <img src="assets/logo.png" alt="inkCloudNote" class="brand-logo" width="28" height="28">
+        <span class="brand-name">inkCloudNote</span>
+      </a>
+      <nav class="nav-links" aria-label="主导航">
+        <a href="#features-pc">功能</a>
+        <a href="#themes">主题</a>
+        <a href="#download">下载</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+      <div class="nav-actions">
+        <button id="theme-toggle" class="icon-btn" aria-label="切换深浅色主题" title="切换主题">
+          <span class="icon-sun">🌙</span>
+          <span class="icon-moon">☀️</span>
+        </button>
+        <a href="#download" class="btn btn-primary btn-sm">立即下载</a>
+        <button id="nav-toggle" class="nav-toggle" aria-label="展开菜单" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- ============ HERO ============ -->
+    <section id="hero" class="hero">
+      <div class="container hero-inner">
+        <div class="hero-text">
+          <span class="badge">开源 · 免费 · MIT 协议</span>
+          <h1>inkCloudNote<br><span class="hero-sub">印刻笔记</span></h1>
+          <p class="tagline">三端同步的 Markdown 知识库 — PC + Android + 百度网盘</p>
+          <p class="lead">用国内熟悉的百度网盘做云端枢纽，一处写作，多端到达。还支持从 Apple 备忘录一键迁移。</p>
+          <div class="hero-cta">
+            <a href="#download" class="btn btn-primary btn-lg">立即下载</a>
+            <a href="#features-pc" class="btn btn-ghost btn-lg">查看功能 ↓</a>
+          </div>
+          <p class="version-line">
+            最新版本 <strong id="latest-version">—</strong>
+            <span class="dot">·</span>
+            支持 macOS / Windows / Linux / Android
+          </p>
+        </div>
+        <div class="hero-visual">
+          <img src="assets/pc/hero.png" alt="inkCloudNote PC 端编辑器主界面" class="hero-screenshot" loading="eager">
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 三栏核心卖点 ============ -->
+    <section id="highlights" class="section">
+      <div class="container">
+        <div class="highlights-grid">
+          <article class="highlight-card">
+            <div class="highlight-icon">🖥️</div>
+            <h3>PC 编辑器</h3>
+            <p>基于 MarkText 的 WYSIWYG 实时预览，macOS / Windows / Linux 原生支持。</p>
+          </article>
+          <article class="highlight-card">
+            <div class="highlight-icon">📱</div>
+            <h3>Android 移动端</h3>
+            <p>Material 3 设计，手机 / 平板 / 折叠屏自适应，随时随地记录与查阅。</p>
+          </article>
+          <article class="highlight-card">
+            <div class="highlight-icon">☁️</div>
+            <h3>百度网盘云同步</h3>
+            <p>双向增量同步、智能冲突解决，多端最终一致，数据安全隔离。</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ PC 端 ============ -->
+    <section id="features-pc" class="section section-alt">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">桌面端</span>
+          <h2>所写即所得的 Markdown 编辑体验</h2>
+          <p class="section-desc">继承开源 MarkText 的成熟编辑内核，覆盖 CommonMark + GFM 全语法，并加入 macOS 专属的 Apple 备忘录一键导入。</p>
+        </div>
+
+        <div class="feature-shot">
+          <img src="assets/pc/interface.png" alt="PC 端编辑界面" loading="lazy">
+        </div>
+
+        <div class="features-grid">
+          <div class="feature-item">
+            <h4>实时预览 WYSIWYG</h4>
+            <p>无需切换源码，所见即所得，专注内容本身。</p>
+            <img src="assets/pc/format-popup.png" alt="格式浮层" loading="lazy">
+          </div>
+          <div class="feature-item">
+            <h4>三种编辑模式</h4>
+            <p>源代码 / 打字机（光标居中）/ 专注（仅高亮当前行）。</p>
+            <img src="assets/pc/typewriter.gif" alt="打字机模式动图" loading="lazy">
+          </div>
+          <div class="feature-item">
+            <h4>专注模式</h4>
+            <p>仅高亮当前段落，沉浸式写作。</p>
+            <img src="assets/pc/focus.gif" alt="专注模式动图" loading="lazy">
+          </div>
+          <div class="feature-item">
+            <h4>可视化表格</h4>
+            <p>拖拽排序行列，单元格支持行内样式。</p>
+            <img src="assets/pc/table.gif" alt="表格编辑动图" loading="lazy">
+          </div>
+          <div class="feature-item">
+            <h4>快速插入</h4>
+            <p>输入即触发的快捷命令，提升效率。</p>
+            <img src="assets/pc/quick-insert.png" alt="快速插入" loading="lazy">
+          </div>
+          <div class="feature-item">
+            <h4>导出 PDF / HTML</h4>
+            <p>自定义主题与页眉页脚，一键导出。</p>
+            <img src="assets/pc/export-pdf.png" alt="导出 PDF" loading="lazy">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 移动端 ============ -->
+    <section id="features-mobile" class="section">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">移动端</span>
+          <h2>Android 原生体验 · 随时随地</h2>
+          <p class="section-desc">Capacitor + React 构建，遵循 Material 3 设计规范，针对手机、平板、折叠屏全适配。</p>
+        </div>
+
+        <div class="mobile-showcase">
+          <div class="mobile-features">
+            <div class="mobile-feature">
+              <div class="mf-icon">🎨</div>
+              <div>
+                <h4>Material 3 设计</h4>
+                <p>手机 / 平板 / 折叠屏自适应，横竖屏通用。</p>
+              </div>
+            </div>
+            <div class="mobile-feature">
+              <div class="mf-icon">🗂️</div>
+              <div>
+                <h4>卡片式文件列表</h4>
+                <p>文件名 + 时间 + 大小 + 内容预览 + 同步状态一览。</p>
+              </div>
+            </div>
+            <div class="mobile-feature">
+              <div class="mf-icon">⌨️</div>
+              <div>
+                <h4>底部常驻工具栏</h4>
+                <p>加粗 / 斜体 / 列表 / 表格 / 图片 / 代码块 / Emoji 全覆盖。</p>
+              </div>
+            </div>
+            <div class="mobile-feature">
+              <div class="mf-icon">👆</div>
+              <div>
+                <h4>手势交互</h4>
+                <p>左滑快捷操作、下拉刷新触发同步、长按多选。</p>
+              </div>
+            </div>
+            <div class="mobile-feature">
+              <div class="mf-icon">🖼️</div>
+              <div>
+                <h4>多来源插图</h4>
+                <p>相册 / 拍照 / 剪贴板 / 网络链接，一键插入。</p>
+              </div>
+            </div>
+            <div class="mobile-feature">
+              <div class="mf-icon">⚡</div>
+              <div>
+                <h4>毫秒级展开</h4>
+                <p>4000+ 笔记目录乐观展开 + fastScan，告别卡顿。</p>
+              </div>
+            </div>
+          </div>
+          <div class="mobile-visual">
+            <img src="assets/mobile/splash.png" alt="inkCloudNote 移动端" class="mobile-splash" loading="lazy">
+            <p class="mobile-note">移动端运行时界面截图为待补素材，首期用启动页占位。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 云同步 ============ -->
+    <section id="features-cloud" class="section section-alt">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">云端</span>
+          <h2>百度网盘双向云同步</h2>
+          <p class="section-desc">用国内用户最熟悉的百度网盘做云端枢纽，无需自建服务器，数据完全隔离在你的网盘内。</p>
+        </div>
+
+        <div class="cloud-diagram">
+          <div class="cloud-node cloud-pc">🖥️<br><span>PC 端</span></div>
+          <div class="cloud-arrow">⇅</div>
+          <div class="cloud-node cloud-hub">☁️<br><span>百度网盘<br>（我的文档库）</span></div>
+          <div class="cloud-arrow">⇅</div>
+          <div class="cloud-node cloud-mobile">📱<br><span>Android</span></div>
+        </div>
+
+        <div class="cloud-features">
+          <div class="cloud-feature">
+            <h4>🔄 双向增量同步</h4>
+            <p>本地改动自动 Push，云端 / 他端改动自动 Pull，多端最终一致。</p>
+          </div>
+          <div class="cloud-feature">
+            <h4>🔐 OAuth 安全授权</h4>
+            <p>系统浏览器授权，token 用 safeStorage 加密存储，密码不落地。</p>
+          </div>
+          <div class="cloud-feature">
+            <h4>🛡️ 数据隔离</h4>
+            <p>严格限定云端 <code>/我的文档库/</code> 目录，绝不触碰其他文件。</p>
+          </div>
+          <div class="cloud-feature">
+            <h4>🎯 6 态差异识别</h4>
+            <p>本地 / 云端 × 新增 / 修改 / 删除 精准匹配，避免重复传输。</p>
+          </div>
+          <div class="cloud-feature">
+            <h4>⚖️ 智能冲突解决</h4>
+            <p>最新优先，旧版存为 <code>_conflict_时间戳</code> 备份（每文件最多 3 个）。</p>
+          </div>
+          <div class="cloud-feature">
+            <h4>📡 多端目录发现</h4>
+            <p>PC 新增的同步目录，移动端启动自动发现并合并。</p>
+          </div>
+          <div class="cloud-feature">
+            <h4>🔁 失败自动重试</h4>
+            <p>3 次重试（1s / 3s / 5s）+ 断点续传 + 离线队列补传。</p>
+          </div>
+          <div class="cloud-feature">
+            <h4>⚙️ 细粒度配置</h4>
+            <p>防抖 / 轮询间隔、并发数、glob 排除、仅 WiFi 同步皆可调。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 主题墙 ============ -->
+    <section id="themes" class="section">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">个性化</span>
+          <h2>40+ 精选主题</h2>
+          <p class="section-desc">深浅色自动跟随系统，覆盖 Dracula / Nord / Catppuccin / Gruvbox 等热门配色，总有一款适合你。</p>
+        </div>
+        <div class="themes-wall">
+          <figure class="theme-card"><img src="assets/themes/cadmium-light.png" alt="Cadmium Light 主题" loading="lazy"><figcaption>Cadmium Light</figcaption></figure>
+          <figure class="theme-card"><img src="assets/themes/material-dark.png" alt="Material Dark 主题" loading="lazy"><figcaption>Material Dark</figcaption></figure>
+          <figure class="theme-card"><img src="assets/themes/one-dark.png" alt="One Dark 主题" loading="lazy"><figcaption>One Dark</figcaption></figure>
+          <figure class="theme-card"><img src="assets/themes/dracula.png" alt="Dracula 主题" loading="lazy"><figcaption>Dracula</figcaption></figure>
+          <figure class="theme-card"><img src="assets/themes/nord.png" alt="Nord 主题" loading="lazy"><figcaption>Nord</figcaption></figure>
+          <figure class="theme-card"><img src="assets/themes/catppuccin-mocha.png" alt="Catppuccin Mocha 主题" loading="lazy"><figcaption>Catppuccin Mocha</figcaption></figure>
+          <figure class="theme-card"><img src="assets/themes/gruvbox-dark.png" alt="Gruvbox Dark 主题" loading="lazy"><figcaption>Gruvbox Dark</figcaption></figure>
+          <figure class="theme-card"><img src="assets/themes/solarized-dark.png" alt="Solarized Dark 主题" loading="lazy"><figcaption>Solarized Dark</figcaption></figure>
+          <figure class="theme-card"><img src="assets/themes/tokyo-night.png" alt="Tokyo Night 主题" loading="lazy"><figcaption>Tokyo Night</figcaption></figure>
+          <figure class="theme-card"><img src="assets/themes/rose-pine.png" alt="Rosé Pine 主题" loading="lazy"><figcaption>Rosé Pine</figcaption></figure>
+          <figure class="theme-card"><img src="assets/themes/graphite.png" alt="Graphite 主题" loading="lazy"><figcaption>Graphite</figcaption></figure>
+          <figure class="theme-card"><img src="assets/themes/cyberdream.png" alt="Cyberdream 主题" loading="lazy"><figcaption>Cyberdream</figcaption></figure>
+        </div>
+        <p class="themes-more">⋯ 完整主题列表见应用内「设置 → 主题」，共 36+ 款可选。</p>
+      </div>
+    </section>
+
+    <!-- ============ 下载 ============ -->
+    <section id="download" class="section section-alt">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">获取</span>
+          <h2>免费下载</h2>
+          <p class="section-desc">选择你的平台，立即开始。所有安装包均托管在 GitHub Releases，全球 CDN 加速。</p>
+        </div>
+
+        <div class="download-grid" id="download-grid">
+          <!-- macOS -->
+          <a class="download-card" id="dl-mac"
+             href="https://github.com/audi-studio/inkcloudnote-web/releases/latest"
+             data-platform="mac">
+            <div class="dl-icon">🍎</div>
+            <div class="dl-info">
+              <div class="dl-title">macOS</div>
+              <div class="dl-meta" data-meta>Apple Silicon / Intel · <code>.dmg</code></div>
+            </div>
+            <div class="dl-action">下载 →</div>
+          </a>
+          <!-- Windows -->
+          <a class="download-card" id="dl-win"
+             href="https://github.com/audi-studio/inkcloudnote-web/releases/latest"
+             data-platform="windows">
+            <div class="dl-icon">🪟</div>
+            <div class="dl-info">
+              <div class="dl-title">Windows</div>
+              <div class="dl-meta" data-meta>x64 · <code>.exe</code>（NSIS 安装包）</div>
+            </div>
+            <div class="dl-action">下载 →</div>
+          </a>
+          <!-- Linux -->
+          <a class="download-card" id="dl-linux"
+             href="https://github.com/audi-studio/inkcloudnote-web/releases/latest"
+             data-platform="linux">
+            <div class="dl-icon">🐧</div>
+            <div class="dl-info">
+              <div class="dl-title">Linux</div>
+              <div class="dl-meta" data-meta><code>.AppImage</code> · 免安装运行</div>
+            </div>
+            <div class="dl-action">下载 →</div>
+          </a>
+          <!-- Android -->
+          <a class="download-card" id="dl-android"
+             href="https://github.com/audi-studio/inkcloudnote-web/releases/latest"
+             data-platform="android">
+            <div class="dl-icon">🤖</div>
+            <div class="dl-info">
+              <div class="dl-title">Android</div>
+              <div class="dl-meta" data-meta><code>.apk</code> · 直接安装</div>
+            </div>
+            <div class="dl-action">下载 →</div>
+          </a>
+        </div>
+
+        <p class="download-hint">
+          <span id="platform-hint"></span>
+          <span class="dot">·</span>
+          <a href="https://github.com/audi-studio/inkcloudnote-web/releases" target="_blank" rel="noopener">查看全部历史版本</a>
+        </p>
+
+        <noscript>
+          <p class="download-noscript">⚠️ 你的浏览器禁用了 JavaScript，请直接访问
+            <a href="https://github.com/audi-studio/inkcloudnote-web/releases/latest">Releases 页面</a> 手动下载。</p>
+        </noscript>
+      </div>
+    </section>
+
+    <!-- ============ FAQ ============ -->
+    <section id="faq" class="section">
+      <div class="container container-narrow">
+        <div class="section-head">
+          <span class="eyebrow">问答</span>
+          <h2>常见问题</h2>
+        </div>
+
+        <details class="faq-item">
+          <summary>inkCloudNote 是免费的吗？</summary>
+          <p>完全免费，基于 MIT 开源协议。代码托管在 <a href="https://gitee.com/audi-studio/markcloudnote" target="_blank" rel="noopener">Gitee</a>，可自行审查与编译。</p>
+        </details>
+
+        <details class="faq-item">
+          <summary>云同步会泄露我的数据吗？</summary>
+          <p>不会。同步通道走你自己的百度网盘，数据严格限定在 <code>/我的文档库/</code> 目录内，应用绝不会访问网盘其他文件。授权采用 OAuth 安全流程，token 加密存储在本机。</p>
+        </details>
+
+        <details class="faq-item">
+          <summary>和原版 MarkText 是什么关系？</summary>
+          <p>inkCloudNote 是 MarkText 的深度定制分支，继承其成熟的 WYSIWYG 编辑内核，并新增了 Android 移动端与百度网盘云同步。在此感谢上游 MarkText 开源社区。</p>
+        </details>
+
+        <details class="faq-item">
+          <summary>支持 iPhone / iPad 吗？</summary>
+          <p>目前移动端仅支持 Android。iOS 版本暂未规划，如需求强烈欢迎在 Gitee 提 Issue 反馈。</p>
+        </details>
+
+        <details class="faq-item">
+          <summary>能否从 Apple 备忘录迁移？</summary>
+          <p>可以。macOS 端内置一键导入功能，保留文件夹层级、附件自动转 Markdown、支持断点续传，详见应用内「文件 → 导入 Apple 备忘录」。</p>
+        </details>
+
+        <details class="faq-item">
+          <summary>同步时网络断了怎么办？</summary>
+          <p>支持离线编辑，所有改动会进入待同步队列；网络恢复后自动补传。大文件支持分片断点续传，失败自动重试 3 次。</p>
+        </details>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ Footer ============ -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-col">
+        <div class="brand">
+          <img src="assets/logo.png" alt="" class="brand-logo" width="24" height="24">
+          <span class="brand-name">inkCloudNote</span>
+        </div>
+        <p class="footer-tag">三端同步的 Markdown 知识库</p>
+        <p class="footer-license">MIT License © 2026 audi-studio</p>
+      </div>
+      <div class="footer-col">
+        <h5>资源</h5>
+        <a href="https://gitee.com/audi-studio/markcloudnote" target="_blank" rel="noopener">Gitee 源码</a>
+        <a href="https://github.com/audi-studio/inkcloudnote-web/releases" target="_blank" rel="noopener">下载 / Releases</a>
+        <a href="#faq">常见问题</a>
+      </div>
+      <div class="footer-col">
+        <h5>致谢</h5>
+        <a href="https://github.com/marktext/marktext" target="_blank" rel="noopener">上游 MarkText</a>
+        <a href="https://docs.github.com/zh/pages" target="_blank" rel="noopener">GitHub Pages</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container">
+        <p>本网站由 GitHub Pages 托管 · 基于 MarkText 编辑内核 · 用 ❤️ 构建</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/app.js" defer></script>
+</body>
+</html>
