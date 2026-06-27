@@ -88,15 +88,15 @@
       versionEl.textContent = release.tag;
     }
 
-    // 为每个下载卡片设置直链
-    ['mac', 'windows', 'linux', 'android'].forEach(function (platform) {
+    // 为「已发布」的下载卡片补充文件大小信息（不覆盖 href——HTML 里已是直链）
+    // 跳过 .download-card-disabled（Windows/Linux 未发布）
+    ['mac', 'android'].forEach(function (platform) {
       var conf = PLATFORM_ASSETS[platform];
       var card = document.getElementById(conf.node);
-      if (!card) return;
+      if (!card || card.classList.contains('download-card-disabled')) return;
       var asset = pickAsset(release.assets, platform);
       if (asset) {
-        card.href = asset.url;
-        // 更新 meta 显示文件大小
+        // href 已在 HTML 写死，这里只补充文件大小到 meta
         var meta = card.querySelector('[data-meta]');
         if (meta) {
           var sizeStr = formatSize(asset.size);
@@ -105,7 +105,6 @@
           meta.innerHTML = (sizeStr ? sizeStr + ' · ' : '') + extText;
         }
       }
-      // 找不到资产时保持 fallback（releases/latest）
     });
   }
 
@@ -116,6 +115,10 @@
       hint.textContent = '检测到 iOS — 移动端暂仅支持 Android，可下载桌面版。';
       return;
     }
+    if (platform === 'windows' || platform === 'linux') {
+      hint.textContent = '检测到 ' + PLATFORM_ASSETS[platform].label + ' — 该平台版本即将支持，敬请期待。';
+      return;
+    }
     if (platform === 'unknown') {
       hint.textContent = '请根据你的系统选择对应版本。';
       return;
@@ -123,9 +126,11 @@
     var conf = PLATFORM_ASSETS[platform];
     hint.textContent = '检测到 ' + conf.label + ' — 已为你高亮对应版本。';
 
-    // 高亮当前平台卡片
+    // 高亮当前平台卡片（仅对已发布的 mac/android 生效）
     var card = document.getElementById(conf.node);
-    if (card) card.classList.add('recommended');
+    if (card && !card.classList.contains('download-card-disabled')) {
+      card.classList.add('recommended');
+    }
   }
 
   // ===== 3. 主题切换 =====

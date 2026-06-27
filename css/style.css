@@ -643,6 +643,28 @@ code {
   color: var(--primary);
   flex-shrink: 0;
 }
+
+/* 置灰（即将支持）的下载卡片 */
+.download-card-disabled {
+  opacity: 0.55;
+  filter: grayscale(0.6);
+  cursor: not-allowed;
+  /* 不可点击、不可 hover 高亮 */
+  pointer-events: none;
+}
+.download-card-disabled .dl-icon {
+  opacity: 0.6;
+}
+.dl-badge {
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 0.25rem 0.6rem;
+  border-radius: 999px;
+  background: var(--bg-alt);
+  color: var(--text-muted);
+  border: 1px solid var(--border);
+}
+
 .download-hint {
   text-align: center;
   color: var(--text-muted);

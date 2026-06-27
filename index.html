@@ -320,47 +320,43 @@
         </div>
 
         <div class="download-grid" id="download-grid">
-          <!-- macOS -->
+          <!-- macOS（已发布） -->
           <a class="download-card" id="dl-mac"
-             href="https://github.com/audi-studio/inkcloudnote-web/releases/latest"
+             href="https://github.com/odiesong-hub/inkcloudnote-web/releases/download/v0.19.0-rc.4/inkcloudnote-mac-arm64-0.19.0-rc.4.dmg"
              data-platform="mac">
             <div class="dl-icon">🍎</div>
             <div class="dl-info">
               <div class="dl-title">macOS</div>
-              <div class="dl-meta" data-meta>Apple Silicon / Intel · <code>.dmg</code></div>
+              <div class="dl-meta" data-meta>Apple Silicon · <code>.dmg</code> · 144 MB</div>
             </div>
             <div class="dl-action">下载 →</div>
           </a>
-          <!-- Windows -->
-          <a class="download-card" id="dl-win"
-             href="https://github.com/audi-studio/inkcloudnote-web/releases/latest"
-             data-platform="windows">
+          <!-- Windows（即将支持） -->
+          <div class="download-card download-card-disabled" id="dl-win" data-platform="windows">
             <div class="dl-icon">🪟</div>
             <div class="dl-info">
               <div class="dl-title">Windows</div>
-              <div class="dl-meta" data-meta>x64 · <code>.exe</code>（NSIS 安装包）</div>
+              <div class="dl-meta"><code>.exe</code> · NSIS 安装包</div>
             </div>
-            <div class="dl-action">下载 →</div>
-          </a>
-          <!-- Linux -->
-          <a class="download-card" id="dl-linux"
-             href="https://github.com/audi-studio/inkcloudnote-web/releases/latest"
-             data-platform="linux">
+            <div class="dl-action dl-badge">即将支持</div>
+          </div>
+          <!-- Linux（即将支持） -->
+          <div class="download-card download-card-disabled" id="dl-linux" data-platform="linux">
             <div class="dl-icon">🐧</div>
             <div class="dl-info">
               <div class="dl-title">Linux</div>
-              <div class="dl-meta" data-meta><code>.AppImage</code> · 免安装运行</div>
+              <div class="dl-meta"><code>.AppImage</code> · 免安装运行</div>
             </div>
-            <div class="dl-action">下载 →</div>
-          </a>
-          <!-- Android -->
+            <div class="dl-action dl-badge">即将支持</div>
+          </div>
+          <!-- Android（已发布） -->
           <a class="download-card" id="dl-android"
-             href="https://github.com/audi-studio/inkcloudnote-web/releases/latest"
+             href="https://github.com/odiesong-hub/inkcloudnote-web/releases/download/v0.19.0-rc.4/app-zh-release.apk"
              data-platform="android">
             <div class="dl-icon">🤖</div>
             <div class="dl-info">
               <div class="dl-title">Android</div>
-              <div class="dl-meta" data-meta><code>.apk</code> · 直接安装</div>
+              <div class="dl-meta" data-meta>中文版「印刻笔记」 · <code>.apk</code> · 22 MB</div>
             </div>
             <div class="dl-action">下载 →</div>
           </a>
@@ -369,7 +365,7 @@
         <p class="download-hint">
           <span id="platform-hint"></span>
           <span class="dot">·</span>
-          <a href="https://github.com/audi-studio/inkcloudnote-web/releases" target="_blank" rel="noopener">查看全部历史版本</a>
+          <a href="https://github.com/odiesong-hub/inkcloudnote-web/releases" target="_blank" rel="noopener">查看全部历史版本</a>
         </p>
 
         <noscript>
